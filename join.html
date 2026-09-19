@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Join a PackCheck trip</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5f6be2;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 28px 24px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(21, 30, 67, 0.25);
+  }
+  h1 { font-size: 20px; color: #151e43; margin: 0 0 8px; }
+  p { font-size: 14px; color: #61728f; line-height: 1.5; margin: 0 0 20px; }
+  .code {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    color: #151e43;
+    background: #e8f3ff;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background: #5f6be2;
+    color: #fff8ed;
+    font-weight: 800;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .hint { font-size: 12px; color: #61728f; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="title">You're invited to a PackCheck trip</h1>
+    <p id="opening">Opening the app&hellip;</p>
+    <div class="code" id="code">------</div>
+    <a class="btn" id="open-link" href="#">Open PackCheck</a>
+    <p class="hint">Don't have the app yet? Open PackCheck, choose Party Pack &rarr; Join with a code, and enter the code above.</p>
+  </div>
+  <script>
+    // Static page (GitHub Pages) — the invite code arrives as a query
+    // param instead of being rendered server-side, since there's no
+    // server here to template it in. See invite-party-sheet.tsx for the
+    // sharer's side, which builds this same ?code=<code> URL.
+    var params = new URLSearchParams(window.location.search);
+    var code = (params.get('code') || '').toUpperCase();
+    var SCHEME = 'packcheck';
+
+    if (!code) {
+      document.getElementById('title').textContent = 'Missing invite code';
+      document.getElementById('opening').textContent = 'This link is missing its code — ask whoever invited you to resend it.';
+      document.getElementById('code').style.display = 'none';
+      document.getElementById('open-link').style.display = 'none';
+    } else {
+      var deepLink = SCHEME + '://join/' + encodeURIComponent(code);
+      document.getElementById('code').textContent = code;
+      document.getElementById('open-link').href = deepLink;
+      // Best-effort auto-redirect — browsers vary in whether they'll honor
+      // a custom-scheme navigation fired from a script vs. a real tap, so
+      // the visible "Open PackCheck" link above is the reliable fallback
+      // either way.
+      window.location.href = deepLink;
+    }
+  </script>
+</body>
+</html>
