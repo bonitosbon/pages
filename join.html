@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Join a PackCheck trip</title>
+<title>Join a Preppo trip</title>
 <style>
   :root { color-scheme: light; }
   body {
@@ -56,11 +56,11 @@
 </head>
 <body>
   <div class="card">
-    <h1 id="title">You're invited to a PackCheck trip</h1>
+    <h1 id="title">You're invited to a Preppo trip</h1>
     <p id="opening">Opening the app&hellip;</p>
     <div class="code" id="code">------</div>
-    <a class="btn" id="open-link" href="#">Open PackCheck</a>
-    <p class="hint">Don't have the app yet? Open PackCheck, choose Party Pack &rarr; Join with a code, and enter the code above.</p>
+    <a class="btn" id="open-link" href="#">Open Preppo</a>
+    <p class="hint">Don't have the app yet? Open Preppo, choose Party Pack &rarr; Join with a code, and enter the code above.</p>
   </div>
   <script>
     // Static page (GitHub Pages) — the invite code arrives as a query
@@ -69,7 +69,7 @@
     // sharer's side, which builds this same ?code=<code> URL.
     var params = new URLSearchParams(window.location.search);
     var code = (params.get('code') || '').toUpperCase();
-    var SCHEME = 'packcheck';
+    var SCHEME = 'preppo';
 
     if (!code) {
       document.getElementById('title').textContent = 'Missing invite code';
@@ -82,7 +82,7 @@
       document.getElementById('open-link').href = deepLink;
       // Best-effort auto-redirect — browsers vary in whether they'll honor
       // a custom-scheme navigation fired from a script vs. a real tap, so
-      // the visible "Open PackCheck" link above is the reliable fallback
+      // the visible "Open Preppo" link above is the reliable fallback
       // either way.
       window.location.href = deepLink;
     }

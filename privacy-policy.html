@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PackCheck Privacy Policy</title>
+<title>Preppo Privacy Policy</title>
 <style>
   :root { color-scheme: light; }
   body {
@@ -42,36 +42,37 @@
 <body>
   <div class="wrap">
     <div class="card">
-      <span class="pill">PackCheck</span>
+      <span class="pill">Preppo</span>
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated 2026-09-19</p>
 
-      <p>PackCheck is a travel packing app. This page explains what information the app handles and why.</p>
+      <p>Preppo is a travel packing app. This page explains what information the app handles and why.</p>
 
       <h2>No account required</h2>
-      <p>PackCheck doesn't ask for an email address or password. Your trips, packing lists, and settings are stored on your own device. Nothing is created on our servers unless you choose to use Party Packing.</p>
+      <p>Preppo doesn't ask for an email address or password. Your trips, packing lists, and settings are stored on your own device. Nothing is created on our servers unless you choose to use Party Packing.</p>
 
       <h2>Party Packing (optional)</h2>
       <p>If you start or join a shared trip with other people, the app creates an anonymous identity for your device (no name, email, or phone number attached) so the shared trip can sync between everyone's phones in real time. The trip's destination, dates, packing list, and the display name/avatar you choose for that trip are stored so other invited members can see them. Deleting a shared trip (as the organizer) or leaving it (as a member) removes your access to that shared data.</p>
 
       <h2>Camera</h2>
-      <p>If you use the camera to scan items into your packing list, photos are analyzed on your device first. If on-device recognition can't confidently identify an item, a photo may be sent to our server for a second pass — it's used only to return a result and is not stored for any other purpose.</p>
+      <p>If you use the camera to scan items into your packing list, photos are analyzed on your device first using a bundled on-device model — most scans never leave your phone. If the on-device scan can't confidently identify an item, the photo is automatically sent to Google's Gemini API as a fallback for a second look. We don't store the photo ourselves; how Google handles data sent to its API is governed by Google's own privacy policy.</p>
 
       <h2>Location</h2>
-      <p>If you allow location access, it's used only to note where you last saw a packed item (e.g. "left in the hotel room"). This stays on your own device and is never sent to us or to other party members, even on a shared trip.</p>
+      <p>If you allow location access, it's used to note where you last saw a packed item (e.g. "left in the hotel room") and, only when needed, to look up the name of that place. This is usually answered from data cached on your device. If nothing is cached for that spot, your coordinates are sent to a mapping lookup service (OpenStreetMap Nominatim, or your device's own built-in location service) to get a place name back. This is never sent to us or to other party members, even on a shared trip.</p>
 
       <h2>Other services this app talks to</h2>
       <p>To provide weather forecasts, area suggestions, currency conversion, and location lookups, the app sends non-identifying requests (like a country name or coordinates) to these third-party services:</p>
       <ul>
         <li>Open-Meteo (weather forecasts)</li>
-        <li>OpenStreetMap / Overpass (nearby places for location tagging)</li>
+        <li>OpenStreetMap (Overpass for nearby places, Nominatim for place-name lookups)</li>
         <li>A city/population lookup service (suggesting areas within a country)</li>
         <li>Frankfurter (currency exchange rates)</li>
+        <li>Google Gemini (fallback photo recognition, only when on-device scanning can't identify an item)</li>
       </ul>
       <p>None of these receive your name, contact details, or device identity.</p>
 
       <h2>Children's privacy</h2>
-      <p>PackCheck is not directed at children and does not knowingly collect information from children.</p>
+      <p>Preppo is not directed at children and does not knowingly collect information from children.</p>
 
       <h2>Contact</h2>
       <p>Questions about this policy or your data? Reach out at <a href="mailto:uyvhonenathaniel@gmail.com">uyvhonenathaniel@gmail.com</a>.</p>
